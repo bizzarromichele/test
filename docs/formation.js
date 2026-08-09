@@ -18,3 +18,6 @@ function autoLineup(){let layout=fantaLayouts[fantaModule],pool={P:[],D:[],C:[],
 function clearLineup(){fantaSlots={};fantaSelected=null;renderFormation()}
 async function saveFormation(show=false){state.formations=[{name:'Principale',module:fantaModule,slots:fantaSlots}];await save();if(show)alert('Formazione salvata ✅')}
 const originalPage=page;page=function(b,id){originalPage(b,id);if(id==='formation'){loadSavedFormation();renderFormation()}};
+
+// Load the advanced AI optimizer after the base formation engine.
+(function(){if(document.querySelector('script[data-fanta-ai]'))return;const s=document.createElement('script');s.src='docs/formation-ai.js';s.defer=true;s.dataset.fantaAi='1';document.body.appendChild(s);})();
