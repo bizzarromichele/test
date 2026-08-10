@@ -18,15 +18,7 @@ function autoLineup(){let layout=fantaLayouts[fantaModule],pool={P:[],D:[],C:[],
 function clearLineup(){fantaSlots={};fantaSelected=null;renderFormation()}
 async function saveFormation(show=false){state.formations=[{name:'Principale',module:fantaModule,slots:fantaSlots}];await save();if(show)alert('Formazione salvata ✅')}
 const originalPage=page;page=function(b,id){originalPage(b,id);if(id==='formation'){loadSavedFormation();renderFormation()}};
-
-// Load the advanced AI optimizer, then the Beta 3 strategy/animation layer.
 (function(){
- if(!document.querySelector('script[data-fanta-ai]')){
-  const s=document.createElement('script');s.src='docs/formation-ai.js?v=3';s.defer=true;s.dataset.fantaAi='1';
-  s.onload=()=>{if(document.querySelector('script[data-fanta-v3]'))return;const v=document.createElement('script');v.src='docs/strategy-v3.js?v=3';v.defer=true;v.dataset.fantaV3='1';document.body.appendChild(v)};
-  document.body.appendChild(s);
- }
- if(!document.querySelector('script[data-fanta-onboarding]')){
-  const o=document.createElement('script');o.src='docs/onboarding.js?v=2';o.defer=true;o.dataset.fantaOnboarding='1';document.body.appendChild(o);
- }
+ if(!document.querySelector('script[data-fanta-ai]')){const s=document.createElement('script');s.src='docs/formation-ai.js?v=104';s.defer=true;s.dataset.fantaAi='1';s.onload=()=>{if(document.querySelector('script[data-fanta-v3]'))return;const v=document.createElement('script');v.src='docs/strategy-v3.js?v=104';v.defer=true;v.dataset.fantaV3='1';document.body.appendChild(v)};document.body.appendChild(s)}
+ if(!document.querySelector('script[data-fanta-onboarding]')){const o=document.createElement('script');o.src='docs/onboarding.js?v=104';o.defer=true;o.dataset.fantaOnboarding='1';document.body.appendChild(o)}
 })();
