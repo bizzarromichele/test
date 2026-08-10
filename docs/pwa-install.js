@@ -26,7 +26,11 @@
     const disclaimer=document.getElementById('fantaDisclaimer');
     if(disclaimer){
       const box=disclaimer.firstElementChild;
-      if(box)box.innerHTML=box.innerHTML.replace('INFORMAZIONI SULLA BETA','INFORMAZIONI SULLA RELEASE').replace('<b>Versione Beta.</b> Al momento il servizio è sperimentale ed è limitato a un massimo di <b>10 utenti</b>. Funzioni, statistiche e stime possono essere modificate durante lo sviluppo. In futuro il progetto potrà eventualmente essere reso disponibile su scala più ampia.','<b>Versione ufficiale 1.1.0.</b> IL FANTA è nella sua prima release ufficiale ed è attualmente distribuito con accesso privato fino a un massimo di <b>10 utenti</b>. Funzioni, statistiche e stime potranno continuare a evolvere nelle versioni successive.');
+      if(box){
+        const oldHtml=box.innerHTML;
+        const newHtml=oldHtml.replace('INFORMAZIONI SULLA BETA','INFORMAZIONI SULLA RELEASE').replace('<b>Versione Beta.</b> Al momento il servizio è sperimentale ed è limitato a un massimo di <b>10 utenti</b>. Funzioni, statistiche e stime possono essere modificate durante lo sviluppo. In futuro il progetto potrà eventualmente essere reso disponibile su scala più ampia.','<b>Versione ufficiale 1.1.0.</b> IL FANTA è nella sua prima release ufficiale ed è attualmente distribuito con accesso privato fino a un massimo di <b>10 utenti</b>. Funzioni, statistiche e stime potranno continuare a evolvere nelle versioni successive.');
+        if(newHtml!==oldHtml)box.innerHTML=newHtml;
+      }
     }
   }
 
