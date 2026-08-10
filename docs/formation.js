@@ -19,6 +19,7 @@ function clearLineup(){fantaSlots={};fantaSelected=null;renderFormation()}
 async function saveFormation(show=false){state.formations=[{name:'Principale',module:fantaModule,slots:fantaSlots}];await save();if(show)alert('Formazione salvata ✅')}
 const originalPage=page;page=function(b,id){originalPage(b,id);if(id==='formation'){loadSavedFormation();renderFormation()}};
 (function(){
- if(!document.querySelector('script[data-fanta-ai]')){const s=document.createElement('script');s.src='docs/formation-ai.js?v=104';s.defer=true;s.dataset.fantaAi='1';s.onload=()=>{if(document.querySelector('script[data-fanta-v3]'))return;const v=document.createElement('script');v.src='docs/strategy-v3.js?v=104';v.defer=true;v.dataset.fantaV3='1';document.body.appendChild(v)};document.body.appendChild(s)}
- if(!document.querySelector('script[data-fanta-onboarding]')){const o=document.createElement('script');o.src='docs/onboarding.js?v=104';o.defer=true;o.dataset.fantaOnboarding='1';document.body.appendChild(o)}
+ if(!document.querySelector('script[data-fanta-ai]')){const s=document.createElement('script');s.src='docs/formation-ai.js?v=110';s.defer=true;s.dataset.fantaAi='1';s.onload=()=>{if(document.querySelector('script[data-fanta-v3]'))return;const v=document.createElement('script');v.src='docs/strategy-v3.js?v=110';v.defer=true;v.dataset.fantaV3='1';document.body.appendChild(v)};document.body.appendChild(s)}
+ if(!document.querySelector('script[data-fanta-onboarding]')){const o=document.createElement('script');o.src='docs/onboarding.js?v=110';o.defer=true;o.dataset.fantaOnboarding='1';document.body.appendChild(o)}
+ if(!document.querySelector('script[data-fanta-pwa]')){const p=document.createElement('script');p.src='docs/pwa-install.js?v=110';p.defer=true;p.dataset.fantaPwa='1';document.body.appendChild(p)}
 })();
