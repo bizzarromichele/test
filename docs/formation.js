@@ -22,4 +22,5 @@ const originalPage=page;page=function(b,id){originalPage(b,id);if(id==='formatio
  if(!document.querySelector('script[data-fanta-ai]')){const s=document.createElement('script');s.src='docs/formation-ai.js?v=110';s.defer=true;s.dataset.fantaAi='1';s.onload=()=>{if(document.querySelector('script[data-fanta-v3]'))return;const v=document.createElement('script');v.src='docs/strategy-v3.js?v=110';v.defer=true;v.dataset.fantaV3='1';document.body.appendChild(v)};document.body.appendChild(s)}
  if(!document.querySelector('script[data-fanta-onboarding]')){const o=document.createElement('script');o.src='docs/onboarding.js?v=110';o.defer=true;o.dataset.fantaOnboarding='1';document.body.appendChild(o)}
  if(!document.querySelector('script[data-fanta-pwa]')){const p=document.createElement('script');p.src='docs/pwa-install.js?v=110';p.defer=true;p.dataset.fantaPwa='1';document.body.appendChild(p)}
+ if(!document.querySelector('script[data-fanta-polish]')){const q=document.createElement('script');q.src='docs/visual-polish.js?v=1101';q.defer=true;q.dataset.fantaPolish='1';document.body.appendChild(q)}
 })();
