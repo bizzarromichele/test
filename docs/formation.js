@@ -7,7 +7,7 @@ const fantaLayouts={
 '5-3-2':[['P',50,90],['D',9,72],['D',29,68],['D',50,65],['D',71,68],['D',91,72],['C',25,43],['C',50,38],['C',75,43],['A',35,18],['A',65,18]],
 '4-5-1':[['P',50,90],['D',15,72],['D',38,69],['D',62,69],['D',85,72],['C',10,48],['C',30,42],['C',50,37],['C',70,42],['C',90,48],['A',50,16]],
 '5-4-1':[['P',50,90],['D',9,72],['D',29,68],['D',50,65],['D',71,68],['D',91,72],['C',14,44],['C',38,39],['C',62,39],['C',86,44],['A',50,16]]};
-function fEsc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function fEsc(s){return String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]))}
 function loadSavedFormation(){if(Array.isArray(state.formations)&&state.formations[0]){fantaModule=state.formations[0].module||'4-3-3';fantaSlots=state.formations[0].slots||{};if(document.getElementById('module'))document.getElementById('module').value=fantaModule}}
 function setModule(m){fantaModule=m;fantaSlots={};fantaSelected=null;renderFormation()}
 function selectPlayer(id){fantaSelected=+id;renderFormation()}
@@ -21,8 +21,12 @@ const originalPage=page;page=function(b,id){originalPage(b,id);if(id==='formatio
 
 // Load the advanced AI optimizer, then the Beta 3 strategy/animation layer.
 (function(){
- if(document.querySelector('script[data-fanta-ai]'))return;
- const s=document.createElement('script');s.src='docs/formation-ai.js?v=3';s.defer=true;s.dataset.fantaAi='1';
- s.onload=()=>{if(document.querySelector('script[data-fanta-v3]'))return;const v=document.createElement('script');v.src='docs/strategy-v3.js?v=3';v.defer=true;v.dataset.fantaV3='1';document.body.appendChild(v)};
- document.body.appendChild(s);
+ if(!document.querySelector('script[data-fanta-ai]')){
+  const s=document.createElement('script');s.src='docs/formation-ai.js?v=3';s.defer=true;s.dataset.fantaAi='1';
+  s.onload=()=>{if(document.querySelector('script[data-fanta-v3]'))return;const v=document.createElement('script');v.src='docs/strategy-v3.js?v=3';v.defer=true;v.dataset.fantaV3='1';document.body.appendChild(v)};
+  document.body.appendChild(s);
+ }
+ if(!document.querySelector('script[data-fanta-onboarding]')){
+  const o=document.createElement('script');o.src='docs/onboarding.js?v=2';o.defer=true;o.dataset.fantaOnboarding='1';document.body.appendChild(o);
+ }
 })();
