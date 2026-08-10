@@ -1,0 +1,28 @@
+{
+  "id": "/",
+  "name": "IL FANTA – secondo Michele Bizzarro",
+  "short_name": "IL FANTA",
+  "description": "Fantacalcio 2026/27 con mercato, rosa, formazione, Fanta AI e Mister AI con Gemini.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#07131f",
+  "theme_color": "#07151f",
+  "lang": "it-IT",
+  "orientation": "portrait-primary",
+  "prefer_related_applications": false,
+  "icons": [
+    {
+      "src": "/docs/icon-192.svg",
+      "sizes": "192x192",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/docs/icon-512.svg",
+      "sizes": "512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
