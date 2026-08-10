@@ -15,13 +15,19 @@
 
   function updateVersionLabels(){
     document.title='Il Fanta secondo Michele Bizzarro • v'+VERSION;
-    document.querySelectorAll('div,span').forEach(el=>{
+    document.querySelectorAll('div,span,p').forEach(el=>{
       if(el.children.length)return;
       const t=(el.textContent||'').trim();
       if(t==='VERSIONE UFFICIALE 1.0.4 • 2026/27')el.textContent='VERSIONE UFFICIALE 1.1.0 • 2026/27';
       if(t==='IL FANTA • v1.0.4')el.textContent='IL FANTA • v1.1.0';
       if(t==='v1.0.4 • Creato da Michele Bizzarro')el.textContent='v1.1.0 • Creato da Michele Bizzarro';
+      if(t==='Beta privata • massimo 10 mister • username e password personali.')el.textContent='Release ufficiale • accesso privato fino a 10 mister • username e password personali.';
     });
+    const disclaimer=document.getElementById('fantaDisclaimer');
+    if(disclaimer){
+      const box=disclaimer.firstElementChild;
+      if(box)box.innerHTML=box.innerHTML.replace('INFORMAZIONI SULLA BETA','INFORMAZIONI SULLA RELEASE').replace('<b>Versione Beta.</b> Al momento il servizio è sperimentale ed è limitato a un massimo di <b>10 utenti</b>. Funzioni, statistiche e stime possono essere modificate durante lo sviluppo. In futuro il progetto potrà eventualmente essere reso disponibile su scala più ampia.','<b>Versione ufficiale 1.1.0.</b> IL FANTA è nella sua prima release ufficiale ed è attualmente distribuito con accesso privato fino a un massimo di <b>10 utenti</b>. Funzioni, statistiche e stime potranno continuare a evolvere nelle versioni successive.');
+    }
   }
 
   function closeHelp(){document.getElementById('installHelp')?.remove()}
@@ -60,5 +66,6 @@
 
   ensureHead();updateVersionLabels();
   if('serviceWorker' in navigator)navigator.serviceWorker.register('/sw.js',{scope:'/'}).catch(()=>{});
+  const obs=new MutationObserver(()=>updateVersionLabels());obs.observe(document.documentElement,{childList:true,subtree:true});
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>{updateVersionLabels();installCard()});else installCard();
 })();
